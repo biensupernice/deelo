@@ -1,0 +1,66 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "author": "Kennet Postigo <kennetfpostigo@gmail.com>",
+  "license": "CLOSED SOURCE",
+  "dependencies": {
+    "@chakra-ui/icons": "1.0.13",
+    "@chakra-ui/machine": "1.3.0",
+    "@chakra-ui/react": "1.6.1",
+    "@chakra-ui/theme-tools": "1.1.7",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^10.2.0",
+    "@sindresorhus/slugify": "^1.1.0",
+    "clsx": "^1.1.1",
+    "framer-motion": "^4.1.16",
+    "gray-matter": "^4.0.3",
+    "lodash.groupby": "^4.6.0",
+    "match-sorter": "^6.3.0",
+    "next": "^10.2.0",
+    "next-mdx-remote": "^2.1.4",
+    "node-fetch": "^2.6.1",
+    "path-match": "^1.2.4",
+    "pretty-quick": "^3.1.0",
+    "prismjs": "^1.23.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-lazyload": "^3.2.0",
+    "recursive-readdir": "^2.2.2",
+    "remark-prism": "^1.3.6",
+    "set-value": "^3.0.2",
+    "typeface-inter": "^3.15.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-react": "^7.23.2",
+    "husky": "^6.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 80
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

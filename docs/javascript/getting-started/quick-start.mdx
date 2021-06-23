@@ -1,0 +1,61 @@
+---
+title: Quick Start
+description: A quick walk through getting started with Dextr
+nav: 0
+---
+
+Welcome to the Dextr documentation for javascript! Dextr provides serveral tools
+that will make events monitoring, error reporting, scheduling work, etc. easy to
+use!
+
+There are 2 primary reasons for using our SDK.
+
+1. Instrument your code, to report errors, monitor events, etc.
+2. Access data from our platform of errors, events, scheduled work, etc. in
+   order to build your own in house UI for your application or organization.
+
+## Install
+
+Let's get the ball rolling, open up your terminal and use your preferred package
+manager to install `@dextr/browser`:
+
+```bash
+# Using npm
+npm install @dextr/browser
+
+# Using yarn
+yarn add @dextr/browser
+```
+
+## Configuring Dextr
+
+Setting up Dextr is a painless task, Dextr takes a requires a few fields before
+being ready to roll:
+
+```javascript
+import Dextr from "@dextr/browser";
+
+Dextr.init({
+  url: 'https://${YOUR_UNIQUE_Dextr_SCOPE}.dextr.io',
+  release: '2.12.4',
+  environment: 'production',
+});
+```
+
+## Usage
+
+Here is a nice simple example of capturing an error in your frontend application, 
+a asyncronous function that may encounter an error:
+
+```javascript
+import Dextr from "@dextr/browser";
+
+async function doSomething () {
+  try {
+    ...
+  } catch (e) {
+    Dextr.captureError(e);
+    ...
+  }
+}
+```

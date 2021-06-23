@@ -1,0 +1,22 @@
+# editor settings
+.vscode/
+
+# dependencies
+.pnp
+.pnp.js
+node_modules/
+
+# dependency lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# other
+.next/
+.DS_Store
+
+build/
+dist/
+logs/
+out/
+tmp/

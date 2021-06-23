@@ -1,0 +1,44 @@
+---
+title: Capture Errors
+description: Capturing Errors with the Dextr SDK
+nav: 5
+---
+
+Capturing errors to report to Dextr happens through a single function call:
+
+```javascript
+Dextr.captureError(error);
+```
+
+This is the most minimal and simple way to capture an error with Dextr SDK.
+
+## captureError options
+
+You can also pass `Dextr.captureError` optional options to specify a level and
+any hosts to exclude from capturing errors from.
+
+```typescript
+type captureError = (
+  error: Error,
+  options: {
+    level: 'FATAL' | 'ERROR' | 'WARN' | 'DEBUG';
+    excludeHosts: string[];
+  }
+) => void;
+```
+
+We will dig more into error levels in the next section. `excludeHosts` allows
+you to tell Dextr to do nothing(noop) when running on a specific url host.
+
+## Example
+
+Here is a sample of all these being set:
+
+```javascript
+import Dextr from '@dextr/browser';
+
+Dextr.captureError(e, {
+  level: 'FATAL',
+  excludeHosts: ['localhost'],
+});
+```

@@ -1,0 +1,63 @@
+---
+title: Why report errors?
+description: Why you should care about reporting application errors
+nav: 4
+---
+
+## Reporting errors is important
+
+Reporting errors to Dextr helps you make sense of types of errors that could be
+impacting your users. Whether it's failed runtime errors related to an api
+service that is having a black out or a typo in your code, reporting those errors
+can help you gain insight into what may be going wrong for your users and maybe
+even help you solve them faster.
+
+### Failed API Call
+
+When your users are in your application there are many unexpected scenarios that 
+could play out. For example, what happens if one of your core services is 
+experiencing an outage, and your users aren't able to use a core part of your 
+application? You are going to start hearing from them loudly and you might go 
+through scouring your logs, but if the outage is severe and logs aren't helpful 
+then it can become difficult to pin down what's going wrong. However, Dextr can 
+help here by displaying the errors that your users captured and narrowing down 
+the point of failure:
+
+```javascript
+import Dextr from "@dextr/browser";
+
+async function getDataFromAPI () {
+  try {
+    const res = await fetch("...");
+    const data = await res.json();
+    return data;
+  } catch (e) {
+    // Capture the failed network request
+    Dextr.captureError(e);
+    showFailedAPICallNotification(e);
+  }
+}
+```
+
+### A careless typo
+
+Typos happen to the best of us, and most times our editors or tooling will help 
+catch them in development, but sometimes, our tooling can fail us, and when that 
+happens, we don't want to be kept in the dark, because debugging production is 
+__hard__. Here is an example:
+
+```javascript
+import Dextr from "@dextr/browser";
+
+async function getDataFromAPI () {
+  try {
+    const res = await fetch("...");
+    const data = await res.jsn(); //<--- Typo here should be: res.json();
+    return data;
+  } catch (e) {
+    Dextr.captureError(e);
+    showFailedAPICallNotification(e);
+  }
+}
+```
+

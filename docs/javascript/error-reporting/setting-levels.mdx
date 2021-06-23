@@ -1,0 +1,25 @@
+---
+title: Error Levels
+description: Setting error levels with the Dextr SDK
+nav: 6
+---
+
+Setting error levels when capturing errors can be a helpful tool. When you set a
+level you gain the ability to categorize errors at a high-level based on
+urgency.
+
+## Levels
+
+- Fatal: Any error that is forcing a shutdown or outage of a service or
+  application. Reserve these only for the most heinous errors and situations.
+
+- Error: Any error which is fatal to an operation, but not to a service or
+  application (can't open a required file, missing data, etc.). These errors will
+  force user (administrator, or direct user) intervention. These are usually
+  reserved for incorrect urls, corrupt data, etc.
+
+- Warn: Anything that can potentially cause application oddities, but for which
+  I am automatically recovering.
+
+- Debug: Information that is diagnostically helpful to people more than just
+  developers (IT, sysadmins, etc.).

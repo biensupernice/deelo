@@ -1,0 +1,22 @@
+---
+title: Configuration
+description: Configuring Dextr in your application
+nav: 2
+---
+
+Configuring Dextr is a painless task, the configuration a requires a few fields 
+before being ready to use in your application
+
+```javascript
+Dextr.init({
+  url: "https://${YOUR_UNIQUE_DEXTR_SCOPE}.dextr.io",
+  release: "2.12.4",
+  environment: "production"
+})
+```
+
+- `url`: The Dextr scope for your account
+- `release`: The release version of your application
+- `environment`: The environment the application is running in
+
+This is all there is to it, you are now ready to start using Dextr!

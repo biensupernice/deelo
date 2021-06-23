@@ -1,0 +1,73 @@
+---
+title: Usage
+description: Dextr SDK Usage
+nav: 3
+---
+
+The Dextr SDK exposes functionality to instument your frontend application. The
+SDK includes funcitonality for:
+
+## Error Reporting
+
+```javascript
+import Dextr from "@dextr/browser";
+
+async function doSomething () {
+  try {
+    ...
+  } catch (e) {
+    Dextr.captureError(e);
+    ...
+  }
+}
+```
+
+## Event Tracking
+
+```javascript
+import Dextr from '@dextr/browser';
+
+function onThumbsUp() {
+  Dextr.track('clicked thumbs up', {
+    user: 'lsd8sfd7sdfd8-sd98df88787fd8ds90-s89dfs98df7shfsd7g6s76g5sdft',
+    group: 'subscriber',
+    data: {
+      comment: '29837492u-dsf98adsf7a8sf5sf23083724658tsdtf8s7d6f',
+    },
+  });
+}
+```
+
+## Scheduler
+
+```javascript
+import Dextr from '@dextr/browser';
+
+Dextr.schedule({
+  type: Dextr.SCHEDULE_WORK.NETWORK,
+  endpoint: "https://api.myapplication.com/aggregate/nba/2021"
+  every: {
+    interval: "day",
+    time: "2:00:00AM",
+    tz: "UCT-4"
+  }
+});
+```
+
+## Telemetry
+
+```javascript
+
+```
+
+## Load Testing
+
+```javascript
+
+```
+
+## Uptime Monitoring
+
+```javascript
+
+```
